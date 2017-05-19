@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_margin="12dp"
     android:orientation="vertical"
-    tools:context="com.example.mohsharma.autofillapidemo.MainActivity">
+    tools:context="com.example.mohsharma.sampleproject.MainActivity">
 
     <EditText
         android:id="@+id/user_name"
@@ -17,7 +17,7 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/get_all_repos" />
 
     <TextView
         android:id="@+id/repo_names"

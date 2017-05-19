@@ -1,8 +1,9 @@
-package com.example.mohsharma.autofillapidemo.dagger
+package com.example.mohsharma.sampleproject.dagger
 
-import com.example.mohsharma.autofillapidemo.BuildConfig
-import com.example.mohsharma.autofillapidemo.repositery.RepoInterface
-import com.example.mohsharma.autofillapidemo.repositery.RepoRepositery
+import com.example.mohsharma.sampleproject.BuildConfig
+import com.example.mohsharma.sampleproject.repositery.DataRepository
+import com.example.mohsharma.sampleproject.service.RepoInterface
+import com.example.mohsharma.sampleproject.service.RepoService
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -16,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class NetworkModule {
+class RepositoryModule {
 
     @Provides
     @Singleton
@@ -55,15 +56,22 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun privateMovieAPI(retrofit: Retrofit): RepoInterface {
+    fun privateRepoInterface(retrofit: Retrofit): RepoInterface {
         return retrofit.create(RepoInterface::class.java)
     }
 
     @Provides
     @Singleton
-    fun privateMovieService(api: RepoInterface): RepoRepositery {
-        return RepoRepositery(api)
+    fun privateRepoService(api: RepoInterface): RepoService {
+        return RepoService(api)
     }
+
+    @Provides
+    @Singleton
+    fun privateDataRepositery(repoService: RepoService): DataRepository {
+        return DataRepository(repoService)
+    }
+
 
 }
 

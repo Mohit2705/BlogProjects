@@ -1,4 +1,4 @@
-package com.example.mohsharma.autofillapidemo;
+package com.example.mohsharma.sampleproject;
 
 import org.junit.Test;
 
